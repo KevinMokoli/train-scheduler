@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Train Schedule</title>
+	<!-- Font awesome cdn -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- Custom stylesheet link -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- Firebase cdn -->
+	<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+	<!-- Moment.js cdn -->
+	<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+	<!-- Google font link -->
+	<link href="https://fonts.googleapis.com/css?family=Patua+One|Comfortaa|VT323" rel="stylesheet">
+	<!-- JQuery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <!-- Bootstrap cdn -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="col-sm-3 col-sm-offset-9">
+						<button class="btn btn-success" id="signInWithGithub" data-toggle="tooltip" title="Sign in with Github"><i class="fa fa-github fa-lg" aria-hidden="true"></i> Sign In to Edit</button>
+						<span id="welcomeName">Welcome <span id="userName"></span>!</span><img id="userPic">
+						<button class="btn btn-danger" id="signOut" data-toggle="tooltip" title="Sign out"><i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12 title">
+						<h1>Train Schedule</h1>
+						<h4>For arrival information at the station where any train you like magically appears.</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<div id="marquee">
+					<h3 id="trainMessage">Stand By... Train Schedule Loading...</h3>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-danger">
+				  	<div class="panel-heading">Current Train Schedule</div>
+				  	<div class="panel-body table-responsive">
+				    	<table class="table text-center" id="trainSchedule">
+				    		<thead>
+							    <tr>
+							    	<th class="heading">Train Name</th>
+							        <th class="heading">Destination</th>
+							        <th class="heading">Frequency (min)</th>
+							        <th class="heading">Next Arrival</th>
+							        <th class="heading">Minutes Away</th>
+							        <th class="signedIn heading">Modify</th>
+							    </tr>
+							</thead>
+							<tbody id= "tableBody">
+							</tbody>
+						</table>
+				  	</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="notificationModal" tabindex="-1" role="dialog">
+		  	<div class="modal-dialog" role="document">
+		    	<div class="modal-content">
+		      		<div class="modal-header">
+		        		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        		<h4 class="modal-title">Train Scheduler App Notification</h4>
+		      		</div>
+		     		<div class="modal-body"></div>
+		      		<div class="modal-footer">
+		        		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      		</div>
+		    	</div><!-- /.modal-content -->
+		  	</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panel panel-danger" id="newTrainAdditionPanel">
+					<div class="panel-heading">Add New Train</div>
+					<div class="panel-body">
+						<form id="addNewTrain">
+							<div class="form-group">
+							    <label for="trainName">Train Name</label>
+							    <input type="text" pattern="^[a-zA-Z]+$" class="form-control" id="trainName" required/>
+							</div>
+							<div class="form-group">
+							    <label for="destination">Destination</label>
+							    <input type="text" class="form-control" id="destination" required/>
+							</div>
+							<div class="form-group">
+							    <label for="firstTrainTime">First Train Time (HH:mm)</label>
+							    <input type="text" pattern="^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$" class="form-control" id="firstTrainTime" required/>
+							</div>
+							<div class="form-group">
+							    <label for="frequency">Frequency (min)</label>
+							    <input type="text" class="form-control" id="frequency" required/>
+							</div>
+							<button type="submit" id="addTrain" class="btn btn-danger"><i class="fa fa-plus" aria-hidden="true"></i>Add Train</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!-- Custom javascript link -->
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+</html>

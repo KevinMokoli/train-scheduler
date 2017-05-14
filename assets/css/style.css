@@ -1,0 +1,123 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: black url("../images/trainbg.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: 100% 100%;
+    font-family: 'Comfortaa', cursive;
+}
+
+h1, h4 {
+	font-weight: 900;
+	/*font-family: 'Patua One', cursive;*/
+}
+
+.title {
+	margin-bottom: 45px;
+}
+
+.panel {
+	background-color: rgba(255,255,255,0.95);
+}
+
+.panel-heading {
+	font-size: 18px;
+}
+
+th {
+	font-weight: 900;
+}
+
+.non-editable {
+	border: none;
+	background-color: transparent;
+}
+
+.remove-default {
+	border: none;
+	box-shadow: none;
+}
+
+.wrong-format {
+	border: solid 0.2px #f95252;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.0), 0 0 7px rgba(255, 140, 140, 1);
+}
+
+button {
+	outline: none !important;
+	margin: 10px;
+}
+
+button: active {
+	outline : 0 1px 1px rgba(0, 0, 0, 0.0), 0 0 7px rgba(255, 140, 140, 1);
+}
+
+button.remove.btn.btn-danger {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+#welcomeName {
+	margin: 5px;
+	padding-top: 30px;
+}
+
+#userPic {
+	width: 35px;
+	height: 35px;
+	margin: 5px;
+	border: 3px solid white;
+}
+
+i {
+	margin-right: 10px;
+}
+
+.undoEditClick> i {
+	margin-right: 0px;
+}
+
+#newTrainAdditionPanel, .signedIn {
+	display: none;
+}
+
+
+#marquee {
+	height: 50px;	
+	overflow: hidden;
+	position: relative;
+	color: orange;
+	background-color: black;
+ 	margin-bottom: 15px;
+	font-family: 'VT323', monospace;
+}
+
+#trainMessage {
+	 position: absolute;
+	 width: 100%;
+	 height: 100%;
+	 margin: 0;
+	 font-size: 30px;
+	 line-height: 50px;
+	 animation: scrollText2 20s linear infinite;  /* Apply the animation */
+}
+
+/* Define the animation */
+@keyframes scrollText2 {
+  from {
+    margin-left: 100%;
+	width: 100%;
+  }
+  to {
+    margin-left: -100%;
+	width: 100%;
+  }
+}
+
+button {
+	margin-left: 10px;
+}
